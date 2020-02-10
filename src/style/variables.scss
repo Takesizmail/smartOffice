@@ -1,0 +1,49 @@
+// COLORS
+$color-primary: #0051e4;
+$color-primary-dark: darken($color-primary, 10%);
+$color-success-light: #47dac0;
+$color-success: #0ca187;
+$color-warn-light: #ffd976;
+$color-warn: #f7b200;
+$color-danger-light: #ff9776;
+$color-danger: #f46161;
+$color-danger-dark: darken($color-danger, 10%);
+
+$color-text-default: #303030;
+$color-text-light: #4e4e4e;
+$color-text-dark: #323232;
+$color-text-active: #fff;
+
+$color-background: #fff;
+
+$color-border: #ededed;
+$color-border-dark: #aab4c3;
+
+// Fonts
+
+$font-size-h1: 40px;
+$font-size-h2: 28px;
+$font-size-h3: 24px;
+$font-size-h4: 19px;
+$font-size-text: 16px;
+$font-size-small-text: 14px;
+
+// HEADER
+$header-height: 80px;
+$header-logo-width: 100px;
+$header-shadow-color: #ebebee;
+
+// Tab
+
+$tab-active-color: #f2f5fa;
+
+// Popup
+
+$popup-button-width: 300px;
+
+// Borders
+
+$border-radius-default: 6px;
+
+// FOOTER
+$footer-bg-color: #f7f7fa;
