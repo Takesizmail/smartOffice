@@ -1,3 +1,5 @@
-//.main{
-//  font-family: Proxima Nova Regular;
-//}
+@import 'src/style/index.scss';
+
+body{
+  @include proximaRegular
+}
