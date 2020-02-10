@@ -1,4 +1,5 @@
 // COLORS
+$color-header-room:#232323;
 $color-primary: #0051e4;
 $color-primary-dark: darken($color-primary, 10%);
 $color-success-light: #47dac0;
@@ -24,7 +25,7 @@ $color-border-dark: #aab4c3;
 $font-size-h1: 40px;
 $font-size-h2: 28px;
 $font-size-h3: 24px;
-$font-size-h4: 19px;
+$font-size-h4: 20px;
 $font-size-text: 16px;
 $font-size-small-text: 14px;
 
@@ -33,9 +34,12 @@ $header-height: 80px;
 $header-logo-width: 100px;
 $header-shadow-color: #ebebee;
 
+
 // Tab
 
 $tab-active-color: #f2f5fa;
+$tab-active-color-text:#1e3862;
+$tab-active-color-hover: #f4f7fc;
 
 // Popup
 

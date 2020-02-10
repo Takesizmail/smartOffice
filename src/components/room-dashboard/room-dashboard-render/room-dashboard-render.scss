@@ -1,0 +1,68 @@
+@import "src/style/index";
+
+.room{
+  padding-top: 40px;
+
+  &_navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_number{
+    @include proximaBold;
+    color: $color-header-room;
+    text-transform: uppercase;
+    font-size: $font-size-h2;
+  }
+}
+
+//for bread-crumbs
+  .bread_crumbs{
+    color: $color-text-light;
+    font-size: $font-size-text;
+    text-transform: uppercase;
+    & span + span {
+      margin-left: 18px;
+      &:before{
+        content: '>';
+        display: inline-block;
+        margin-right: 18px;
+      }
+    }
+  }
+
+ //!!for bread-crumbs
+//for roomSwitch
+.switch{
+  display: flex;
+  &_link{
+    width: 180px;
+    height: 55px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    @include proximaBold;
+    font-size: $font-size-small-text;
+    color: $header-shadow-color;
+    border-radius: 100px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &.active{
+      color: $tab-active-color-text;
+      background-color: $tab-active-color;
+    }
+    &.hover{
+      &:hover{
+        color: #2f74b4;
+        background-color:$tab-active-color-hover;
+      }
+    }
+  }
+  & span + span{
+    margin-left: 20px;
+
+  }
+}
+
+//!for roomSwitch

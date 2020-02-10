@@ -3,3 +3,11 @@
 body{
   @include proximaRegular
 }
+.main_container{
+  padding-top: 74px;
+}
+.container{
+  width: 1180px;
+  margin: 0 auto;
+  padding: 0 5px;
+}
