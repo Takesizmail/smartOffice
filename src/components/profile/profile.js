@@ -5,8 +5,7 @@ import Information from "../overview/information";
 const Profile = () =>{
 
     return(
-        // <div></div>
-        <Information/>
+        <div></div>
     )
 };
 export default Profile
