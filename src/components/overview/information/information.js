@@ -41,7 +41,11 @@ const Information = ({changeShowInformation}) =>{
                 <div className="information_text">Carbon dioxide at levels that are unusually high indoors may cause occupants to grow drowsy, to get headaches, or to function at lower activity levels.
                 </div>
                 <div className="information_text"> Outdoor CO2 levels are usually 350-450 ppm whereas the maximum indoor CO2 level considered acceptable is 1000 ppm. Keep this value lowe as possible. </div>
+                <div className="information_status_value">
+                    1220 ppm
+                </div>
                 <div className="information_status">
+
                     {smileArr.map(({img,id}) =>{
                     return (
                         <div key={id} className={`information_status_icon ${id}`}>
