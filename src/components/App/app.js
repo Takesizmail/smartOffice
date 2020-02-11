@@ -7,6 +7,7 @@ import Header from "../header";
 import {OfficeMapPage,
     ProfilePage,
     RoomDashboardPage} from '../pages'
+import Footer from "../footer";
 
 const App = () =>{
 
@@ -25,6 +26,7 @@ const App = () =>{
                 </Switch>
                 </div>
             </div>
+            <Footer/>
         </React.Fragment>
     )
 };

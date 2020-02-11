@@ -9,7 +9,7 @@ class RoomSwitch extends Component {
             active: el
         })
     };
-     elementList = ['overview','analysis'];
+    elementList = ['overview','analysis'];
     render() {
         const {active} = this.state;
         return(
@@ -19,8 +19,9 @@ class RoomSwitch extends Component {
                     const clazz = isActive ? 'switch_link active' : 'switch_link hover';
 
                     return <span className={clazz}
-                        onClick={() =>this.changeActive(el)}
-                        > {el}</span>
+                                 onClick={() =>this.changeActive(el)}
+                                 key={el}
+                    > {el}</span>
                 })}
             </div>
         )

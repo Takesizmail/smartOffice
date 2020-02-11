@@ -1,7 +1,7 @@
 @import 'src/style/index.scss';
 
 body{
-  @include proximaRegular
+  @include proximaRegular;
 }
 .main_container{
   padding-top: 74px;
@@ -11,3 +11,22 @@ body{
   margin: 0 auto;
   padding: 0 5px;
 }
+*{
+  box-sizing: border-box;
+}
+
+
+//footer
+.footer{
+  width: 100%;
+  background-color: $footer-bg-color;
+  font-size: $font-size-text;
+  position: fixed;
+  height: 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+}
+//!footer
