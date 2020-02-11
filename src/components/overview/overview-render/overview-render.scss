@@ -8,11 +8,10 @@
 
 //for status
 .status{
-  width: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-basis:  280px;
+  flex: 0 0 280px;
   & > img{
     width: 144px;
     height: 144px;
@@ -28,6 +27,7 @@
     color: $color-text-default;
     line-height: 1.41;
     font-size: $font-size-text;
+    width: 280px;
 
   }
 
@@ -50,6 +50,7 @@
     justify-content: space-between;
     box-shadow: 0 0 9px rgba( 0,0,0,0.15);
     border-radius: 6px;
+    flex-shrink: 0;
 
   }
   &_details{
@@ -73,11 +74,52 @@
      }
   }
   &_alert{
-    color :$color-danger
+    & img {
+      margin-right: 10px;
+    }
+    &.excellent{
+      color:$color-success
+    }
+    &.alert{
+      color:$color-warn;
+    }
+    &.danger{
+      color: $color-danger
+    }
   }
   &_img{
     display: flex;
     align-items: center;
   }
 }
+
 //!params
+
+
+
+@media (max-width: $ld){
+  .overview{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .params{
+
+    justify-content: space-around;
+    margin: 30px 0  0 0 ;
+    &_item{
+      margin: 10px 5px;
+      width: 300px;
+
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .params{
+    &_item + &_item{
+      margin-top: 20px;
+    }
+  }
+
+}

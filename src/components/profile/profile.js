@@ -1,10 +1,12 @@
 import React from 'react'
 import './profile.scss'
+import Information from "../overview/information";
 
 const Profile = () =>{
 
     return(
-        <div>Profile</div>
+        // <div></div>
+        <Information/>
     )
 };
 export default Profile

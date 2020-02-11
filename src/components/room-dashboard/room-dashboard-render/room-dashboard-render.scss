@@ -16,6 +16,7 @@
   }
 }
 
+
 //for bread-crumbs
   .bread_crumbs{
     color: $color-text-light;
@@ -66,3 +67,41 @@
 }
 
 //!for roomSwitch
+
+@media (max-width: $ld){
+  .bread_crumbs{
+    span{
+      display: none;
+
+      &:last-child{
+        display: inline-block;
+        &:before{
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  .switch{
+    &_link{
+      width: 120px;
+      height: 45px;
+    }
+  }
+}
+@media (max-width: 648px) {
+  .room{
+    &_number{
+      font-size: 18px;
+    }
+  }
+
+  .switch{
+    display: none;
+
+  }
+  .bread_crumbs{
+    & span + span{
+      margin-left: 0;
+    }
+  }
+}

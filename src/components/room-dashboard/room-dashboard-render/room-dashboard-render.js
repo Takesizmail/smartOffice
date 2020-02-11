@@ -3,7 +3,8 @@ import './room-dashboard-render.scss'
 import BreadCrumbs from "../bread-crumbs";
 import RoomSwitch from "../room-switch";
 import OverviewContainer from "../../overview/overview-container";
-const RoomDashboardRender = () =>{
+import Analysis from "../../analysis";
+const RoomDashboardRender = ({contentType}) =>{
     const room = ['room 301'];
     return(
         <div className='room'>
@@ -14,8 +15,7 @@ const RoomDashboardRender = () =>{
                 </div>
                 <RoomSwitch/>
             </div>
-            <OverviewContainer/>
-
+            {contentType}
         </div>
     )
 };

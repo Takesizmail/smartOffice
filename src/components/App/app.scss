@@ -1,18 +1,28 @@
 @import 'src/style/index.scss';
 
-body{
+html,body{
+  height: 100%;
+  padding: 0;
+  margin: 0;
   @include proximaRegular;
 }
 .main_container{
   padding-top: 74px;
+  flex: 1 0 auto;
 }
 .container{
-  width: 1180px;
+ max-width: 1180px;
   margin: 0 auto;
-  padding: 0 5px;
+  padding: 0 10px;
+  flex: 0 0 auto;
 }
 *{
   box-sizing: border-box;
+}
+.root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 
@@ -21,12 +31,10 @@ body{
   width: 100%;
   background-color: $footer-bg-color;
   font-size: $font-size-text;
-  position: fixed;
   height: 94px;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
-  left: 0;
+  margin-top: 100px;
 }
 //!footer

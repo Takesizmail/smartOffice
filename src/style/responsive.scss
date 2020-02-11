@@ -3,6 +3,9 @@ $md-min: 768px;
 $lg-min: 992px;
 $xlg-min: 1200px;
 
+//
+$ld: 914px;
+$md: 648px;
 @mixin xs() {
     @media (max-width: $sm-min - 1px) {
         @content
