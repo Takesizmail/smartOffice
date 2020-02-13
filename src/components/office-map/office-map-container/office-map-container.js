@@ -3,9 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {changeActionFloor,floorsDataLoaded,svgIdLoaded} from "../../../actions/actions";
 import './office-map-container.scss'
-import Floor4 from "../floor-4";
-import Floor3 from "../floor-3";
-import Floor99 from "../floor-99";
+
 import {withSmartOfficeApi} from "../../hoc";
 import FloorView from "../floor-view/floorView";
 
@@ -35,7 +33,7 @@ import FloorView from "../floor-view/floorView";
       };
 
      render() {
-         const {actionFloor,changeActionFloor,floorsData} = this.props;
+         const {actionFloor,floorsData} = this.props;
          console.log(floorsData);
          return(
              <div className="floor">
