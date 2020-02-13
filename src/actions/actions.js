@@ -22,11 +22,42 @@ const changeActionFloor = (actionFloor) =>{
     }
 };
 
+const paramsSensorsLoaded = (data) =>{
+    return {
+        type: 'PARAMS_SENSORS_LOADED',
+        payload: data
+    }
+};
+const floorsDataLoaded = (data) =>{
+    return{
+        type: 'FLOORS_DATA_LOADED',
+        payload: data,
+    }
+};
+const svgIdLoaded = (id) =>{
+    return{
+        type: 'SVG_ID_LOADED',
+        payload: id
+    }
+};
+const floorsRoomsLoaded = (data)=>{
+    return{
+        type: 'FLOORS_ROOMS_LOADED',
+        payload: data
+    }
+};
+
+
+
 
 
 export {
     switchStateChange,
     changeShowInformation,
     paramsRoomLoaded,
-    changeActionFloor
+    changeActionFloor,
+    paramsSensorsLoaded,
+    floorsDataLoaded,
+    svgIdLoaded,
+    floorsRoomsLoaded
 }

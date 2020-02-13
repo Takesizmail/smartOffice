@@ -1,61 +1,74 @@
 import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {changeActionFloor} from "../../../actions/actions";
+import {changeActionFloor,floorsDataLoaded,svgIdLoaded} from "../../../actions/actions";
 import './office-map-container.scss'
 import Floor4 from "../floor-4";
 import Floor3 from "../floor-3";
 import Floor99 from "../floor-99";
 import {withSmartOfficeApi} from "../../hoc";
+import FloorView from "../floor-view/floorView";
 
 
  class OfficeMapContainer extends Component{
 
 
-     floorList =['Floor 3','Floor 4','Floor 99'];
+        componentDidMount() {
+            const {services,floorsDataLoaded} = this.props;
+            services.getApi_floors().then(el=> {
+                floorsDataLoaded(el.data)
+
+            })
+        }
+
 
      goToRoom = (id) =>{
          const {history} = this.props;
          history.push(`/office-map/${id}/`)
      };
+      changeFloor = (floor,svgId) =>{
+          console.log(svgId);
+          const {svgIdLoaded,changeActionFloor} = this.props;
+          svgIdLoaded(svgId);
+          changeActionFloor(floor);
+
+      };
 
      render() {
-         const {actionFloor,changeActionFloor} = this.props;
-         
-         const content = actionFloor ==='Floor 3' ?
-             <Floor3 goToRoom={this.goToRoom}/> :
-             actionFloor === 'Floor 4' ?
-                 <Floor4 goToRoom={this.goToRoom}/> : <Floor99/>;
+         const {actionFloor,changeActionFloor,floorsData} = this.props;
+         console.log(floorsData);
          return(
              <div className="floor">
                  <div className="floor_navigation">
-                     {this.floorList.map(el =>{
-                         const isActive = el === actionFloor;
+                     {floorsData.map(({floorId,floor,svgId}) =>{
+                         const isActive = floor === actionFloor;
                          const clazz = isActive ?  'floor_navigation_item active' : 'floor_navigation_item';
                          return(
                              <div className={clazz}
-                                  key={el}
-                                onClick={()=>changeActionFloor(el)}
+                                  key={`floor${floorId}`}
+                                onClick={()=>this.changeFloor(floor,svgId)}
                              >
-                                 {el}
+                                 {`Floor ${floor}`}
                              </div>
                          )
                      })}
                  </div>
                  <div className="floor_map">
-                     {content}
+                     <FloorView goToRoom={this.goToRoom}/>
+
                  </div>
+
              </div>
          )
      }
 }
-const mapStateToProps = ({actionFloor}) =>{
+const mapStateToProps = ({actionFloor,floorsData}) =>{
      return{
-         actionFloor
+         actionFloor,floorsData
      }
 };
 const mapDispatchToProps = {
-    changeActionFloor
+    changeActionFloor,floorsDataLoaded,svgIdLoaded
 };
 
 

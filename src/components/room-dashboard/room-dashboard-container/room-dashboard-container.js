@@ -12,7 +12,8 @@ class RoomDashboardContainer extends Component{
     componentDidMount() {
         const {services,match,paramsRoomLoaded} = this.props;
 
-        services.getApi_rooms(match.params.id).then(el=> paramsRoomLoaded(el.data));
+        services.getApiRooms(match.params.id).then(el=> paramsRoomLoaded(el.data));
+
     }
 
     render() {

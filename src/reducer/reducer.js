@@ -1,9 +1,13 @@
 const initialState = {
     switchState: 'overview',
-    actionFloor: 'Floor 3',
+    actionFloor: '3',
     showInformation: false,
     informationData:{},
-    paramsOfRoom:{}
+    paramsOfRoom:{},
+    paramsOfSensors:[],
+    floorsData:[],
+    svgId : 1,
+    floorsRoomsData:[]
 
 };
 const reducer = (state=initialState,actions) =>{
@@ -19,15 +23,35 @@ const reducer = (state=initialState,actions) =>{
                 showInformation: !state.showInformation
             };
         case 'PARAMS_ROOM_LOADED':
-            console.log('aaaa');
             return{
                 ...state,
-                paramsOfRoom: actions.payload
+                paramsOfRoom: actions.payload,
+                floorsRoomsData:[],
             };
         case 'CHANGE_ACTION_FLOOR':
             return {
                 ...state,
                 actionFloor: actions.payload
+            };
+        case 'PARAMS_SENSORS_LOADED':
+            return {
+                ...state,
+                paramsOfSensors: actions.payload
+            };
+        case 'FLOORS_DATA_LOADED':
+            return {
+                ...state,
+                floorsData: actions.payload
+            };
+        case 'SVG_ID_LOADED':
+            return {
+                ...state,
+                svgId: actions.payload
+            };
+        case 'FLOORS_ROOMS_LOADED':
+            return {
+                ...state,
+                floorsRoomsData:actions.payload
             };
         default: return  state
     }

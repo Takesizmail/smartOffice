@@ -27,14 +27,11 @@
     display: flex;
     justify-content: center;
 
-    & svg{
-      #rooms{
-        path[data-zone-id="3"],path[data-zone-id='8'],path[data-zone-id='9'],path[data-zone-id='10']{
-          fill: $color-warn-light;
-          fill-opacity: 0.2;
-          cursor: pointer;
-        }
-      }
-    }
+
   }
+}
+.path_zone{
+  fill: $color-warn-light;
+  fill-opacity: 0.2;
+  cursor: pointer;
 }
