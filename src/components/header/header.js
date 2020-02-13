@@ -58,7 +58,7 @@ class Header extends Component{
                                 return(
                                     <Link className={clazz}
                                           key={link}
-                                          to={link}
+                                          to={`/${link}/`}
                                           onClick={()=> this.changeFilter(title)}
                                     >
                                         {title}

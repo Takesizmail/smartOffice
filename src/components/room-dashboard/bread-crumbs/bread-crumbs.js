@@ -1,14 +1,38 @@
 import React from 'react'
-const BreadCrumbs = () =>{
-    const linkList = ['building','floor 3','room 301'];
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {withRouter} from 'react-router-dom'
+const BreadCrumbs = ({paramsOfRoom,match}) =>{
+
+    const linkList = [{
+        name: paramsOfRoom.unitName,
+        to : '/',
+    },{
+        name: `floor ${paramsOfRoom.floor}`,
+        to : '/office-map/',
+    },{
+        name : `room ${paramsOfRoom.roomName}`,
+        to : `${match.url}`
+    }];
+    // остання силка на сaмого себе
 
     return(
         <div className='bread_crumbs'>
-            {linkList.map(el =>
-                <span key={el}>
-                    {el}
-                </span>)}
+            {linkList.map(({name,to}) =>
+                <Link
+                    className='bread_crumbs_link'
+                    key={name}
+                        to={to}
+                >
+
+                    {name}
+                </Link>)}
         </div>
     )
 };
-export default BreadCrumbs
+const mapStateToProps = ({paramsOfRoom})=>{
+    return{
+        paramsOfRoom
+    }
+};
+export default connect(mapStateToProps)(withRouter(BreadCrumbs))

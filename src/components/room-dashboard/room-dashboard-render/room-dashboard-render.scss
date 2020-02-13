@@ -1,7 +1,7 @@
 @import "src/style/index";
 
 .room{
-  padding-top: 40px;
+
 
   &_navigation{
     display: flex;
@@ -19,10 +19,14 @@
 
 //for bread-crumbs
   .bread_crumbs{
-    color: $color-text-light;
-    font-size: $font-size-text;
-    text-transform: uppercase;
-    & span + span {
+
+    &_link{
+     text-decoration: none;
+      color: $color-text-light;
+      font-size: $font-size-text;
+      text-transform: uppercase;
+    }
+    & a + a {
       margin-left: 18px;
       &:before{
         content: '>';
@@ -70,11 +74,12 @@
 
 @media (max-width: $ld){
   .bread_crumbs{
-    span{
+    &_link{
       display: none;
 
       &:last-child{
         display: inline-block;
+        color: #000000;
         &:before{
           transform: rotate(180deg);
         }
@@ -100,7 +105,8 @@
 
   }
   .bread_crumbs{
-    & span + span{
+
+    & a + a{
       margin-left: 0;
     }
   }

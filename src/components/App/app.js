@@ -22,10 +22,11 @@ const App = ({showInformation}) =>{
                 <Header/>
                 <div className="container">
                 <Switch>
-                    <Route path='/room-dashboard' component={RoomDashboardPage} exact/>
-                    <Route path='/office-map' component={OfficeMapPage} exact/>
-                    <Route path='/profile' component={ProfilePage} exact/>
-                    <Redirect to='/' exact/>
+                    <Route path='/room-dashboard/' component={RoomDashboardPage} exact/>
+                    <Route path='/office-map/' component={OfficeMapPage} exact/>
+                    <Route path='/office-map/:id/' component={RoomDashboardPage} exact/>
+                    <Route path='/profile/' component={ProfilePage} exact/>
+                    {/*<Redirect to='/' exact/>*/}
                 </Switch>
                 </div>
             </div>

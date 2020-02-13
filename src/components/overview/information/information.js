@@ -59,7 +59,6 @@ const Information = ({changeShowInformation}) =>{
                     onClick={()=>changeShowInformation()}
                 >Got it </div>
             </div>
-
          </div>
      )
 };

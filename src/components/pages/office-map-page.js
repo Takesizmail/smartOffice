@@ -1,9 +1,9 @@
 import React from 'react'
-import OfficeMap from "../office-map";
+import OfficeMapContainer from "../office-map/office-map-container";
 
 const OfficeMapPage = () =>{
     return(
-        <OfficeMap/>
+        <OfficeMapContainer/>
     )
 
 };
