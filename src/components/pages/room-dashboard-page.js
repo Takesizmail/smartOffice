@@ -1,13 +1,13 @@
 import React from 'react'
+import RoomDashboard from "../room-dashboard";
+import Loader from "../loader";
 
-import RoomDashboardContainer from "../room-dashboard/room-dashboard-container";
-import Information from "../overview/information";
 
 const RoomDashboardPage = () =>{
     return(
         <React.Fragment>
-
-        <RoomDashboardContainer/>
+            <RoomDashboard/>
+            <Loader/>
         </React.Fragment>
     )
 };

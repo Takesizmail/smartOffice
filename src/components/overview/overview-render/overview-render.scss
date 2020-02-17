@@ -3,7 +3,7 @@
 .overview{
   padding-top: 65px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 //for status
@@ -37,6 +37,7 @@
 
 //params
 .params{
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

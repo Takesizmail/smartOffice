@@ -46,10 +46,41 @@ const floorsRoomsLoaded = (data)=>{
         payload: data
     }
 };
-
-
-
-
+const humidityLoaded = (data) =>{
+    return{
+        type: 'HUMIDITY_LOADED',
+        payload: data
+    }
+};
+const temperatureLoaded = (data) =>{
+    return{
+        type: 'TEMPERATURE_LOADED',
+        payload: data
+    }
+};
+const co2Loaded = (data) =>{
+    return{
+        type: 'CO2_LOADED',
+        payload: data
+    }
+};
+const brightnessLoaded = (data) =>{
+    return{
+        type: 'BRIGHTNESS_LOADED',
+        payload: data
+    }
+};
+const changeLoadingParams = (boolean) =>{
+    return{
+        type: 'CHANGE_LOADING_PARAMS',
+        payload: boolean
+    }
+};
+const zeroingOverview = () =>{
+    return{
+        type : 'ZEROING_OVERVIEW'
+    }
+};
 
 export {
     switchStateChange,
@@ -59,5 +90,9 @@ export {
     paramsSensorsLoaded,
     floorsDataLoaded,
     svgIdLoaded,
-    floorsRoomsLoaded
+    floorsRoomsLoaded,
+    humidityLoaded,
+    temperatureLoaded,
+    co2Loaded,
+    brightnessLoaded,changeLoadingParams,zeroingOverview
 }

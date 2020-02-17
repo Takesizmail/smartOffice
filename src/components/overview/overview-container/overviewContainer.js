@@ -5,18 +5,40 @@ import {withSmartOfficeApi} from "../../hoc";
 
 import OverviewRender from "../overview-render";
 import normalFave from '../../../image/status/Normal Face.png'
-import {paramsSensorsLoaded} from "../../../actions/actions";
+import {paramsSensorsLoaded,humidityLoaded,
+    temperatureLoaded,
+    co2Loaded,
+    brightnessLoaded,zeroingOverview} from "../../../actions/actions";
 
 class OverviewContainer extends Component{
 
     componentDidMount() {
         const {paramsSensorsLoaded,services,match} = this.props;
-        services.getApiRoomsSensors(match.params.id).then(el => paramsSensorsLoaded(el.data))
+        services.getApiRoomsSensors(match.params.id).then(el => paramsSensorsLoaded(el.data));
+        this.sortingData()
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.paramsOfSensors !== prevProps.paramsOfSensors){
 
+            this.sortingData();
+        }
+    }
+    sortingData = () =>{
+        const {services,paramsOfSensors,humidityLoaded, temperatureLoaded, co2Loaded, brightnessLoaded} = this.props;
+        paramsOfSensors.forEach(({valueTypes,sensorId}) =>{
+            console.log(sensorId);
+                switch (valueTypes[0]) {
+                    case 0 :
+                        services.getApiParams(sensorId).then((el) => humidityLoaded(el.data) );
+                        break;
+                    case 2 :
+                        services.getApiParams(sensorId).then((el) => temperatureLoaded(el.data) );
+                        break;
+                    default: console.log('something wrong dont have sensors ');
+                }
+            });
+    };
     render() {
-
-        console.log(this.props.paramsOfSensors);
         return(
             <OverviewRender FaceImg={normalFave}/>
         )
@@ -25,11 +47,14 @@ class OverviewContainer extends Component{
 
 const mapStateToProps = ({paramsOfSensors}) =>{
     return{
-        paramsOfSensors
+        paramsOfSensors,
     }
 };
 const mapDispatchToProps = {
-    paramsSensorsLoaded
+    paramsSensorsLoaded,humidityLoaded,
+    temperatureLoaded,
+    co2Loaded,
+    brightnessLoaded,zeroingOverview
 };
 
 

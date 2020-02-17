@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import RoomDashboardRender from "../room-dashboard-render";
+import RoomDashboardRender from "../office-room-render";
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {withSmartOfficeApi} from "../../hoc";
@@ -7,7 +7,7 @@ import OverviewContainer from "../../overview/overview-container";
 import Analysis from "../../analysis";
 import {paramsRoomLoaded} from "../../../actions/actions";
 
-class RoomDashboardContainer extends Component{
+class OfficeRoomContainer extends Component{
 
     componentDidMount() {
         const {services,match,paramsRoomLoaded} = this.props;
@@ -33,4 +33,4 @@ const mapStateToProps = ({switchState,paramsOfRoom}) =>{
 const mapDispatchToProps = {
     paramsRoomLoaded
 };
-export default connect(mapStateToProps,mapDispatchToProps)(withSmartOfficeApi()(withRouter(RoomDashboardContainer)))
+export default connect(mapStateToProps,mapDispatchToProps)(withSmartOfficeApi()(withRouter(OfficeRoomContainer)))

@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
+
 import './analysis.scss'
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts'
@@ -11,7 +13,7 @@ class  Analysis extends Component{
             color: 'rgba(68, 170, 213, .2)'
         }],
         xAxis : {
-            categories:['Apples','Bananas','Potatoes','Oranges','Milk','Kiwi']
+            categories:this.props.paramsTemperature.map(({timestamp}) => timestamp )
         },
         colors:['blue','red'],
         chart : {
@@ -21,18 +23,19 @@ class  Analysis extends Component{
             text: 'Eleks chart'
         },
         series: [{
-            name: 'John',
-            data: [1,1,3,3,3,3,4,4,5,5,6,6,3,4,3,4,5,4,3,5,3,4,5,3,4,54,5,3,4,53,45,3,4,5,34,53,45,35,8,15,6,10,12,9,5,6,7,8,7,6,5,4,5,6,15,7,6,5,4,4,5,6,2,3,3,4,5,5,3,5]
+            name: 'temperature',
+            data: this.props.paramsTemperature.map(({value}) => value )
         },
             {
-                name: 'Kate',
-                data: [2,3,4,5,7,20,19,5]
+                name: 'Humidity',
+                data: this.props.paramsHumidity.map(({value}) => value )
             }
         ]
 
     };
 
     render() {
+
         return(
             <div className='analysis'>
                 <HighchartsReact
@@ -45,4 +48,11 @@ class  Analysis extends Component{
         )
     }
 }
-export default Analysis
+
+const mapStateToProps = ({paramsHumidity,paramsTemperature}) =>{
+    return{
+        paramsHumidity,paramsTemperature
+    }
+};
+
+export default connect(mapStateToProps)(Analysis)

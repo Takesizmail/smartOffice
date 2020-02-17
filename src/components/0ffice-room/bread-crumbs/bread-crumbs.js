@@ -21,7 +21,7 @@ const BreadCrumbs = ({paramsOfRoom,match}) =>{
             {linkList.map(({name,to}) =>
                 <Link
                     className='bread_crumbs_link'
-                    key={name}
+                    key={`bread${name}`}
                         to={to}
                 >
 

@@ -1,3 +1,5 @@
+
+
 const initialState = {
     switchState: 'overview',
     actionFloor: '3',
@@ -7,7 +9,16 @@ const initialState = {
     paramsOfSensors:[],
     floorsData:[],
     svgId : 1,
-    floorsRoomsData:[]
+    floorsRoomsData:[],
+
+    paramsHumidity: [],
+    paramsTemperature: [],
+    paramsCo2: [{value: 666}],
+    paramsBrightness:[ { value : 666}],
+
+    loadingParams : true
+
+
 
 };
 const reducer = (state=initialState,actions) =>{
@@ -53,8 +64,45 @@ const reducer = (state=initialState,actions) =>{
                 ...state,
                 floorsRoomsData:actions.payload
             };
+        case 'HUMIDITY_LOADED' :
+            return {
+                ...state,
+                paramsHumidity: actions.payload
+            };
+        case 'TEMPERATURE_LOADED':
+            return{
+                ...state,
+                paramsTemperature: actions.payload
+            };
+        case 'CO2_LOADED':
+            return {
+                ...state,
+                paramsCo2 : actions.payload
+            };
+        case 'BRIGHTNESS_LOADED':
+            return {
+                ...state,
+                paramsBrightness : actions.payload
+            };
+        case 'CHANGE_LOADING_PARAMS' :
+            return {
+                ...state,
+                loadingParams: actions.payload
+            };
+        case 'ZEROING_OVERVIEW':
+            return{
+                ...state,
+                paramsHumidity: [],
+                paramsTemperature: [],
+                paramsCo2: [{value: 666}],
+                paramsBrightness:[ { value : 666}],
+                switchState: 'overview',
+                loadingParams: true
+            };
+
         default: return  state
     }
+
 
 };
 export default reducer

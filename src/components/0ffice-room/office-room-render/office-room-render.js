@@ -1,10 +1,10 @@
 import React from 'react'
-import './room-dashboard-render.scss'
+import './office-room-render.scss'
 import BreadCrumbs from "../bread-crumbs";
 import RoomSwitch from "../room-switch";
 import {connect} from 'react-redux'
 
-const RoomDashboardRender = ({contentType,paramsOfRoom}) =>{
+const OfficeRoomRender = ({contentType,paramsOfRoom}) =>{
     const room = ['room 301'];
     return(
         <div className='room'>
@@ -27,4 +27,4 @@ const mapStateToProps = ({paramsOfRoom})=>{
 
 
 
-export default connect(mapStateToProps)(RoomDashboardRender)
+export default connect(mapStateToProps)(OfficeRoomRender)

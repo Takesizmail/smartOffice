@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {changeActionFloor,floorsDataLoaded,svgIdLoaded} from "../../../actions/actions";
+import {changeActionFloor,floorsDataLoaded,svgIdLoaded,zeroingOverview} from "../../../actions/actions";
 import './office-map-container.scss'
 
 import {withSmartOfficeApi} from "../../hoc";
@@ -12,11 +12,11 @@ import FloorView from "../floor-view/floorView";
 
 
         componentDidMount() {
-            const {services,floorsDataLoaded} = this.props;
+            const {services,floorsDataLoaded, zeroingOverview} = this.props;
             services.getApi_floors().then(el=> {
                 floorsDataLoaded(el.data)
-
-            })
+            });
+            zeroingOverview();
         }
 
 
@@ -66,7 +66,7 @@ const mapStateToProps = ({actionFloor,floorsData}) =>{
      }
 };
 const mapDispatchToProps = {
-    changeActionFloor,floorsDataLoaded,svgIdLoaded
+    changeActionFloor,floorsDataLoaded,svgIdLoaded,zeroingOverview
 };
 
 
