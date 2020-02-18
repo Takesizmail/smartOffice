@@ -9,7 +9,6 @@ class RoomSwitch extends Component {
     elementList = ['overview','analysis'];
     render() {
         const {switchState} = this.props;
-        console.log(switchState);
         return(
             <div className="switch">
                 {this.elementList.map(el =>{

@@ -116,6 +116,13 @@
   }
 }
 
+@media (max-width:1160px) {
+  .params {
+
+    justify-content: space-around;
+  }
+}
+
 @media (max-width: $md) {
   .params{
     &_item + &_item{

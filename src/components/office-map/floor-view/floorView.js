@@ -3,12 +3,14 @@ import {withSmartOfficeApi} from "../../hoc";
 import {connect} from 'react-redux'
 
 import {floorsRoomsLoaded} from "../../../actions/actions";
+import Loader from "../../loader";
 
 
 class FloorView extends Component{
 
     state ={
-        svg : ''
+        svg : '',
+        loading: true
 
     };
     componentDidMount() {
@@ -22,12 +24,17 @@ class FloorView extends Component{
 
     loadingSVG = () =>{
         const {services,svgId,floorsRoomsLoaded} = this.props;
-        services.getApiShema(svgId)
+        this.setState({
+            loading: true
+        });
+        services.getApiSchema(svgId)
             .then(el => this.setState({svg: el.data.svg}))
-            .then(()=> services.getApiFloorsRooms(svgId).then(el=>floorsRoomsLoaded(el.data)) );
+            .then(()=> services.getApiFloorsRooms(svgId).then(el=>floorsRoomsLoaded(el.data)));
+            this.setState({
+                loading:false
+            })
     };
     makeMassage = (e)=>{
-        console.log(e);
         const id = e.target.getAttribute('data-zone-id');
         this.props.goToRoom(id);
 };
@@ -47,16 +54,23 @@ class FloorView extends Component{
 
 
     render() {
-        const {svg} = this.state;
+        const {svg,loading} = this.state;
         const { floorsRoomsData} = this.props;
-        this.processingSVG(svg,floorsRoomsData);
 
-        return(
-            <div dangerouslySetInnerHTML={{__html: svg}} className='floor_map'>
+        if (loading){
+            return <Loader/>
+        }else{
+            this.processingSVG(svg,floorsRoomsData);
 
 
-            </div>
-        )
+            return(
+                <div dangerouslySetInnerHTML={{__html: svg}} className='floor_map'>
+
+
+                </div>
+            )
+        }
+
     }
 }
 const mapStateToProps = ({svgId,floorsRoomsData})=>{

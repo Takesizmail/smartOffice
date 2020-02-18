@@ -17,7 +17,7 @@ class  Analysis extends Component{
         },
         colors:['blue','red'],
         chart : {
-            type: 'line'
+            type: 'spline'
         },
         title: {
             text: 'Eleks chart'

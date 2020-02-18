@@ -43,7 +43,7 @@ class Header extends Component{
                     <div className={s.headerWrap}>
                         <div className={s.header_logo}>
                             <div className={s.header_img}>
-                                <img src={Logo} alt="logo-eleks"/>
+                                <Link to='/'>  <img src={Logo} alt="logo-eleks"/></Link>
                             </div>
                             <div className={s.header_name}> smart office</div>
                         </div>

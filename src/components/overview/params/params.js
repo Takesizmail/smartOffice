@@ -11,7 +11,6 @@ import humidityIcon from '../../../image/params/humidity.png'
 import {withSmartOfficeApi} from "../../hoc";
 import Loader from "../../loader";
 
-
 class Params extends  Component{
 
 
@@ -58,17 +57,14 @@ class Params extends  Component{
     }
 
     render() {
-        const {paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,loadingParams} = this.props;
+        const {paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,loadingParams,changeShowInformation} = this.props;
 
 
         if(loadingParams){
-            console.log('omg');
             return (
                 <Loader/>
             );
         }
-
-
         return(
             <div className='params'>
 
