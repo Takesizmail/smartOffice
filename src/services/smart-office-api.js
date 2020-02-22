@@ -767,6 +767,9 @@ class SmartOfficeApi {
             resolve(chart)
             }
         )
+    };
+    getApiLengthOfTime = (link) =>{
+        console.log(`services getApiLengthOfTime : ${link} `)
     }
 }
 

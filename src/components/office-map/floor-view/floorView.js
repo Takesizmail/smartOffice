@@ -2,14 +2,13 @@ import React,{Component} from 'react';
 import {withSmartOfficeApi} from "../../hoc";
 import {connect} from 'react-redux'
 
-import {floorsRoomsLoaded} from "../../../actions/actions";
+import {floorsRoomsLoaded,floorSvgLoaded} from "../../../actions/actions";
 import Loader from "../../loader";
 
 
 class FloorView extends Component{
 
     state ={
-        svg : '',
         loading: true
 
     };
@@ -23,12 +22,12 @@ class FloorView extends Component{
     }
 
     loadingSVG = () =>{
-        const {services,svgId,floorsRoomsLoaded} = this.props;
+        const {services,svgId,floorsRoomsLoaded,floorSvgLoaded} = this.props;
         this.setState({
             loading: true
         });
         services.getApiSchema(svgId)
-            .then(el => this.setState({svg: el.data.svg}))
+            .then(el => floorSvgLoaded(el.data.svg))
             .then(()=> services.getApiFloorsRooms(svgId).then(el=>floorsRoomsLoaded(el.data)));
             this.setState({
                 loading:false
@@ -43,6 +42,7 @@ class FloorView extends Component{
             floorsRoomsData.forEach(({roomId, hasSensor = false}) => {
                 if (hasSensor === true) {
                     let path = document.querySelector(`path[data-zone-id='${roomId}']`);
+                    if(path === null ) return ;
                     path.classList.add('path_zone');
                     path.onclick = (e) => {
                         this.makeMassage(e)
@@ -54,17 +54,17 @@ class FloorView extends Component{
 
 
     render() {
-        const {svg,loading} = this.state;
-        const { floorsRoomsData} = this.props;
+        const {loading} = this.state;
+        const { floorsRoomsData,floorSvd} = this.props;
 
         if (loading){
             return <Loader/>
         }else{
-            this.processingSVG(svg,floorsRoomsData);
+            this.processingSVG(floorSvd,floorsRoomsData);
 
 
             return(
-                <div dangerouslySetInnerHTML={{__html: svg}} className='floor_map'>
+                <div dangerouslySetInnerHTML={{__html: floorSvd}} className='floor_map'>
 
 
                 </div>
@@ -73,12 +73,12 @@ class FloorView extends Component{
 
     }
 }
-const mapStateToProps = ({svgId,floorsRoomsData})=>{
+const mapStateToProps = ({svgId,floorsRoomsData,floorSvd})=>{
     return{
-        svgId,floorsRoomsData
+        svgId,floorsRoomsData,floorSvd
     }
 };
 const mapDispatchToProps = {
-    floorsRoomsLoaded
+    floorsRoomsLoaded,floorSvgLoaded
 };
 export default connect(mapStateToProps,mapDispatchToProps)(withSmartOfficeApi()(FloorView))

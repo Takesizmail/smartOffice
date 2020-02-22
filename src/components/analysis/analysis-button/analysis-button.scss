@@ -1,0 +1,25 @@
+@import "../../../style/index";
+.buttons{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &_switch{
+    @include proximaMedium;
+    font-size: 18px;
+    color: $color-chart-button;
+    cursor: pointer;
+  }
+  &_data{
+    width: 181px;
+    height: 53px;
+    border-radius: 100px;
+    border: solid 2px #f2f5fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-primary;
+    @include proximaSemibold;
+    font-size: 18px;
+  }
+}

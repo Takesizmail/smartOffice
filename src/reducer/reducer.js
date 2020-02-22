@@ -8,6 +8,7 @@ const initialState = {
     paramsOfRoom:{},
     paramsOfSensors:[],
     floorsData:[],
+    floorSvd: '',
     svgId : 1,
     floorsRoomsData:[],
 
@@ -50,9 +51,17 @@ const reducer = (state=initialState,actions) =>{
                 paramsOfSensors: actions.payload
             };
         case 'FLOORS_DATA_LOADED':
+
             return {
                 ...state,
                 floorsData: actions.payload
+            };
+
+        case 'FLOOR_SVG_LOADED':
+            return {
+                ...state,
+                floorSvd: actions.payload,
+                floorsRoomsData:[],
             };
         case 'SVG_ID_LOADED':
             return {

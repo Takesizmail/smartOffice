@@ -34,6 +34,14 @@ const floorsDataLoaded = (data) =>{
         payload: data,
     }
 };
+
+const floorSvgLoaded = (svg) =>{
+    return{
+        type: 'FLOOR_SVG_LOADED',
+        payload: svg
+    }
+};
+
 const svgIdLoaded = (id) =>{
     return{
         type: 'SVG_ID_LOADED',
@@ -94,5 +102,7 @@ export {
     humidityLoaded,
     temperatureLoaded,
     co2Loaded,
-    brightnessLoaded,changeLoadingParams,zeroingOverview
+    brightnessLoaded,changeLoadingParams,
+    zeroingOverview,
+    floorSvgLoaded
 }

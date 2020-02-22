@@ -2,11 +2,10 @@ import React, {Component} from 'react'
 
 import  s from './header.module.scss'
 import Logo from './eleks logo.png'
-import {Link} from "react-router-dom";
+import {NavLink,Link} from "react-router-dom";
 class Header extends Component{
 
     state = {
-        filter: '',
         isOpenMenu: false
     };
 
@@ -21,12 +20,7 @@ class Header extends Component{
         link:'profile'
     }];
 
-    changeFilter = (filter) => {
-        this.setState({
-            filter,
-            isOpenMenu:!this.state.isOpenMenu
-        })
-    };
+
     openMenu = () =>{
         this.setState(({isOpenMenu})=>{
             return {
@@ -35,7 +29,7 @@ class Header extends Component{
         })
     };
     render() {
-        const {filter,isOpenMenu} = this.state;
+        const {isOpenMenu} = this.state;
         const clazz = isOpenMenu ? `${s.header_menu} ${s.active}` : `${s.header_menu}`;
         return(
             <header className={s.header}>
@@ -53,16 +47,15 @@ class Header extends Component{
                         </div>
                         <div className={clazz}>
                             {this.nav.map(({title,link}) =>{
-                                const isActive = filter ===title;
-                                const clazz = isActive ? `${s.header_link} ${s.active}` : s.header_link;
                                 return(
-                                    <Link className={clazz}
+                                    <NavLink className={s.header_link}
                                           key={link}
                                           to={`/${link}/`}
-                                          onClick={()=> this.changeFilter(title)}
+                                             activeClassName={s.active}
+
                                     >
                                         {title}
-                                    </Link>
+                                    </NavLink>
                                 )
                             })}
                         </div>
