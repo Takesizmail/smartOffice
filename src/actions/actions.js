@@ -84,6 +84,13 @@ const changeLoadingParams = (boolean) =>{
         payload: boolean
     }
 };
+const activeParamsLoaded = (params)=>{
+    return{
+        type: 'ACTIVE_PARAMS_LOADED',
+        payload: params
+    }
+};
+
 const zeroingOverview = () =>{
     return{
         type : 'ZEROING_OVERVIEW'
@@ -104,5 +111,6 @@ export {
     co2Loaded,
     brightnessLoaded,changeLoadingParams,
     zeroingOverview,
-    floorSvgLoaded
+    floorSvgLoaded,
+    activeParamsLoaded
 }

@@ -7,131 +7,84 @@ import HighchartsReact from 'highcharts-react-official';
 import AnalysisButton from "./analysis-button/analysis-button";
 import DropList from "./drop-list";
 import Arrow from "./arrow";
+import {withSmartOfficeApi} from "../hoc";
+import Loader from "../loader";
+import Chart from "./chart";
 
 class  Analysis extends Component{
 
-    data =[
 
-    ];
     state={
-        label:2
-    };
-    func = (label) =>{
-        console.log(label)
-    };
-
-    options = {
-        xAxis : {
-            gridLineWidth:0,
-            tickWidth:0,
-        },
-        yAxis:{
-            labels: {
-                formatter: function () {
-                    const label = this.axis.defaultLabelFormatter.call(this);
-                console.log(label);
-                    const sendData = () =>{
-                        console.log(this);
-                       // this.func('karma')
-                    };
-                  console.log()
-                },
-                enabled: false,
-                style:{
-                    fontSize: '18px',
-                    color: '#000000'
-                },
-                x: -1125,
-                y: 0
-
-            },
-            opposite : false, // ставить цифри на осі y  на ліву сторону
-            lineWidth: 0,
-            gridLineWidth: 0,
-            minorGridLineWidth:0,
-            tickLength: 0,
-            plotBands: [{
-                from: 18,
-                to: 22,
-                color: 'rgba(93,226,74,0.3)',
-            }],
-        },
-
-        chart : {
-            type: 'spline'
-        },
-
-        // приховує кнопки і дати зверху
-        rangeSelector: {
-            selected: 1,
-            inputEnabled: false,
-            buttonTheme: {
-                visibility: 'hidden'
-            },
-            labelStyle: {
-                visibility: 'hidden'
-            }
-        },
-        scrollbar: {
-            enabled: false
-        },
-        // повзунки
-        navigator:{
-            handles:{
-                backgroundColor: '#0051e4',
-                borderColor: '#0051e4',
-                height: 20,
-                width: 9
-            },
-
-            // підпис
-
-        },
-        credits:{
-            enabled: false
-        },
-
-
-
-        // дані повинні йти значення в масиві дата і значення
-        series: [{
-            data: this.data
-        }]
+        loader: true,
 
     };
-    makeData = (a,b) =>{
-        a.forEach((el,idx) =>{
-            this.data.push([el,b[idx]]);
-        })
+
+data = [
+
+]
+
+
+
+
+
+    makeData = (params) =>{
+        const abra =  params.map(({timestamp,value}) =>[new Date(timestamp).getTime(),+value.toFixed(2)]);
+        const sortData = abra.sort((x,y)=> x[0] - y[0]);
+        this.data=[];
+            this.data.push(...sortData);
+
+
     };
+
+
 
     render() {
-        console.log(this.state.label);
-        // передав   a часові відмітки в unix форматі b дані з сервака температура (value)
-        this.makeData(this.props.paramsTemperature.map(({timestamp}) => new Date(timestamp).getTime()) , this.props.paramsTemperature.map(({value}) => +value.toFixed(2)));
-        console.log(this.data);
+        const {paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,activeParamsChart} = this.props;
+        console.log(activeParamsChart,this.data);
+
+
+
+        switch (activeParamsChart.value) {
+            case 'temperature':
+                this.makeData(paramsTemperature);
+                break;
+            case 'humidity':
+                this.makeData(paramsHumidity);
+                break;
+            case 'co2':
+                this.makeData(paramsCo2);
+                break;
+            case 'brightness':
+                this.makeData(paramsBrightness);
+                break;
+            default :   this.makeData(paramsTemperature);
+
+        }
+
+
+
+
         return(
             <React.Fragment>
                 <DropList/>
             <div className='analysis'>
-                <Arrow clazz='arrow arrow_left'/>
-                <HighchartsReact
-                    highcharts={Highcharts}
-                    constructorType={'stockChart'}
-                    options={this.options}
-                />
-                <Arrow clazz='arrow arrow_right'/>
-            </div>
+
+                {/*<Arrow clazz='arrow arrow_left'/>*/}
+              {/*  потрібно додати іншу зелену лінію для кожної стрілки*/}
+              <Chart data={this.data} plotBand={[1,2,3]}/>
+                {/*<Arrow clazz='arrow arrow_right'/>*/}
                 <AnalysisButton/>
+            </div>
+
             </React.Fragment>
         )
     }
 }
 
-const mapStateToProps = ({paramsHumidity,paramsTemperature}) =>{
+const mapStateToProps = ({paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,activeParamsChart}) =>{
     return{
-        paramsHumidity,paramsTemperature
+        paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,activeParamsChart
     }
 };
 
-export default connect(mapStateToProps)(Analysis)
+export default connect(mapStateToProps)(withSmartOfficeApi()(Analysis))

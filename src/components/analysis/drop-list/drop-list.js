@@ -1,8 +1,10 @@
 import React from 'react'
 import './drop-list.scss'
 import Select from "react-select";
+import {connect} from 'react-redux'
+import {activeParamsLoaded} from "../../../actions/actions";
 
-const DropList = () =>{
+const DropList = ({activeParamsChart,activeParamsLoaded}) =>{
     const options = [
         { value: 'temperature', label: 'Temperature' },
         { value: 'humidity', label: 'Humidity' },
@@ -30,16 +32,15 @@ const DropList = () =>{
         }),
     };
     const changeValue = (value) =>{
-        console.log(value);
+        activeParamsLoaded(value)
     };
-
     return(
         <div className='drop-list'>
             <Select  options = {options}
                      onChange={(value)=>changeValue(value)}
                      blurInputOnSelect={false}
                      styles = { customStyles }
-                     defaultValue ={{ value: 'temperature', label: 'Temperature' }}
+                     defaultValue ={activeParamsChart}
                      className='react-select-container'
                      classNamePrefix="react-select"
                      components={{
@@ -61,4 +62,13 @@ const DropList = () =>{
         </div>
     )
 };
-export default DropList
+const mapDispatchToProps = {
+    activeParamsLoaded
+};
+const mapStateToProps = ({activeParamsChart}) =>{
+    return {
+        activeParamsChart
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(DropList)

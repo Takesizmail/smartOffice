@@ -1,7 +1,8 @@
 @import "src/style/index";
 .analysis{
   //padding-top: 50px;
-  max-width: 1150px;
+  max-width: 850px;
+  margin: 0 auto;
   position: relative;
   //display: flex;
 }
@@ -10,4 +11,11 @@
 }
 .highcharts-navigator-mask-inside{
 
+}
+
+.label__black{
+  fill: #000000;
+}
+.label__grey{
+  fill: #7e7e7e
 }
