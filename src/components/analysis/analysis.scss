@@ -1,4 +1,13 @@
+@import "src/style/index";
 .analysis{
-  padding-top: 50px;
+  //padding-top: 50px;
   max-width: 1150px;
+  position: relative;
+  //display: flex;
+}
+.highcharts-navigator-mask-outside{
+ //stroke: $color-primary;
+}
+.highcharts-navigator-mask-inside{
+
 }

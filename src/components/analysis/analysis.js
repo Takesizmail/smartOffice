@@ -5,21 +5,46 @@ import './analysis.scss'
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import AnalysisButton from "./analysis-button/analysis-button";
+import DropList from "./drop-list";
+import Arrow from "./arrow";
 
 class  Analysis extends Component{
 
     data =[
 
     ];
-
+    state={
+        label:2
+    };
+    func = (label) =>{
+        console.log(label)
+    };
 
     options = {
         xAxis : {
             gridLineWidth:0,
             tickWidth:0,
-
         },
         yAxis:{
+            labels: {
+                formatter: function () {
+                    const label = this.axis.defaultLabelFormatter.call(this);
+                console.log(label);
+                    const sendData = () =>{
+                        console.log(this);
+                       // this.func('karma')
+                    };
+                  console.log()
+                },
+                enabled: false,
+                style:{
+                    fontSize: '18px',
+                    color: '#000000'
+                },
+                x: -1125,
+                y: 0
+
+            },
             opposite : false, // ставить цифри на осі y  на ліву сторону
             lineWidth: 0,
             gridLineWidth: 0,
@@ -28,7 +53,7 @@ class  Analysis extends Component{
             plotBands: [{
                 from: 18,
                 to: 22,
-                color: 'rgba(68, 170, 213, 0.2)',
+                color: 'rgba(93,226,74,0.3)',
             }],
         },
 
@@ -58,6 +83,12 @@ class  Analysis extends Component{
                 height: 20,
                 width: 9
             },
+
+            // підпис
+
+        },
+        credits:{
+            enabled: false
         },
 
 
@@ -75,17 +106,21 @@ class  Analysis extends Component{
     };
 
     render() {
+        console.log(this.state.label);
         // передав   a часові відмітки в unix форматі b дані з сервака температура (value)
         this.makeData(this.props.paramsTemperature.map(({timestamp}) => new Date(timestamp).getTime()) , this.props.paramsTemperature.map(({value}) => +value.toFixed(2)));
         console.log(this.data);
         return(
             <React.Fragment>
+                <DropList/>
             <div className='analysis'>
+                <Arrow clazz='arrow arrow_left'/>
                 <HighchartsReact
                     highcharts={Highcharts}
                     constructorType={'stockChart'}
                     options={this.options}
                 />
+                <Arrow clazz='arrow arrow_right'/>
             </div>
                 <AnalysisButton/>
             </React.Fragment>

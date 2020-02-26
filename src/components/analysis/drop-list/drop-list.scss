@@ -1,0 +1,27 @@
+@import "src/style/index";
+.drop-list{
+  width:  200px;
+  @include proximaBold;
+}
+
+.react-select__menu-list{
+  position: relative;
+  z-index: 5;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+//.react-select__option{
+//  background-color: #fff;
+//  &:hover{
+//    //background-color: #fff;
+//    cursor: pointer;
+//  }
+//  &:active{
+//    background-color: red;
+//  }
+//}
+.react-select__menu{
+  position: relative;
+    z-index: 5 !important;
+}

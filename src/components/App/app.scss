@@ -36,5 +36,7 @@ html,body{
   justify-content: center;
   align-items: center;
   margin-top: 100px;
+  position: relative;
+  z-index: 99;
 }
 //!footer
