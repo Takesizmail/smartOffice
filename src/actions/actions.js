@@ -4,10 +4,12 @@ const switchStateChange =(switchState) => {
         payload:  switchState
     }
 };
-const changeShowInformation = () =>{
+const changeShowInformation = (id,value) =>{
     return {
-        type:'CHANGE_SHOW_INFORMATION'
-    }
+        type:'CHANGE_SHOW_INFORMATION',
+        payload: id,
+        value: value
+    };
 };
 const paramsRoomLoaded = (info) =>{
     return {

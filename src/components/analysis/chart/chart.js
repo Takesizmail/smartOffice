@@ -21,7 +21,7 @@ const Chart  = ({data}) =>{
                 second: '%Y-%m-%d<br/>%H:%M:%S',
                 minute: '<br/> <span class="label__grey" > %H:%M <span/>',
                 hour: '<br/> <span class="label__grey" > %H:%M <span/>',
-                day: '</br> <span class="label__black" >%m<span/><span class="label__grey" > / %d<span/>',
+                day: '</br> <span class="label__black" >%d<span/><span class="label__grey" > / %m<span/>',
                 week: '%Y<br/>%m-%d',
                 month: '%Y-%m',
                 year: '%Y'
@@ -50,7 +50,7 @@ const Chart  = ({data}) =>{
             plotBands: [{
                 from: 18,
                 to: 22,
-                color: 'rgba(93,226,74,0.3)',
+                color: 'rgba(93,226,74,0.1)',
             }],
         },
 

@@ -68,7 +68,7 @@ class Params extends  Component{
         return(
             <div className='params'>
 
-                {this.paramsDate.map(({id,img,title,value,params,status}) =>{
+                {this.paramsDate.map(({id,img,title,value,param,status}) =>{
                     let item, _value;
                     switch (status) {
                         case 'excellent':
@@ -100,10 +100,10 @@ class Params extends  Component{
 
                     return (
                         <div className="params_item" key={id}
-                             onClick={()=>changeShowInformation()}
+                             onClick={()=>changeShowInformation(title,[Math.floor(_value),param,status])}
                         ><div className="params_details">
                             <div className="params_title">{title} </div>
-                            <div className="params_value">{Math.floor(_value)} <span>{params}</span></div>
+                            <div className="params_value">{Math.floor(_value)} <span>{param}</span></div>
                             {item}
                         </div>
                             <div className="params_img">

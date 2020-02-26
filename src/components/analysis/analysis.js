@@ -40,9 +40,6 @@ data = [
 
     render() {
         const {paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,activeParamsChart} = this.props;
-        console.log(activeParamsChart,this.data);
-
-
 
         switch (activeParamsChart.value) {
             case 'temperature':
@@ -60,13 +57,15 @@ data = [
             default :   this.makeData(paramsTemperature);
 
         }
-
-
-
-
         return(
             <React.Fragment>
-                <DropList/>
+                <div className="analysis-header">
+                    <DropList/>
+                    <div className="analysis-optimal">
+                        Optimal Indexes
+                    </div>
+                </div>
+
             <div className='analysis'>
 
                 {/*<Arrow clazz='arrow arrow_left'/>*/}

@@ -4,14 +4,34 @@
   max-width: 850px;
   margin: 0 auto;
   position: relative;
-  //display: flex;
-}
-.highcharts-navigator-mask-outside{
- //stroke: $color-primary;
-}
-.highcharts-navigator-mask-inside{
 
+  &-header{
+    max-width: 900px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //margin-top: 50px;
+  }
+  &-optimal{
+    margin-left: 250px;
+    font-size: 18px;
+    position: relative;
+
+    &:before{
+      content: '';
+      display: inline-block;
+      width: 39px;
+      height: 28px;
+      background-color: rgba(93,226,74,0.1);
+      position: absolute;
+      top: 0px;
+      left: -55px;
+
+    }
+  }
 }
+
 
 .label__black{
   fill: #000000;

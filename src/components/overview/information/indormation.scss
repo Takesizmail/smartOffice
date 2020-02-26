@@ -53,6 +53,9 @@
     & &_icon + &_icon{
       margin-left: 8px;
     }
+    &_container{
+
+    }
     &_value{
       width: 80px;
       height: 35px;
@@ -67,12 +70,24 @@
         content: '';
         display: inline-block;
         position: absolute;
-        border-left: 12px solid transparent;
-        border-right: 12px solid transparent;
-        border-top: 14px solid #b3b3b3;
-        bottom: -15px;
-        right: calc(50% - (12px));
-
+        width: 15px;
+        height: 15px;
+        border: 1px solid #b3b3b3;
+        border-top: none;
+        border-left: none;
+        background-color: #fff;
+        transform: rotate(45deg);
+        bottom: -9px;
+        right: calc(50% - (11px));
+      }
+      &.excellent{
+        left: -10px;
+      }
+      &.alert{
+        left: 125px
+      }
+      &.danger{
+        left: 260px;
       }
     }
     &_icon{

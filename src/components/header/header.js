@@ -31,6 +31,7 @@ class Header extends Component{
     render() {
         const {isOpenMenu} = this.state;
         const clazz = isOpenMenu ? `${s.header_menu} ${s.active}` : `${s.header_menu}`;
+        let mobFriendMenu = isOpenMenu ? 'close' : 'menu';
         return(
             <header className={s.header}>
                 <div className={s.container}>
@@ -43,7 +44,7 @@ class Header extends Component{
                         </div>
                         <div className={s.header_menu_button}
                              onClick={()=>this.openMenu()}>
-                            menu
+                            {mobFriendMenu}
                         </div>
                         <div className={clazz}>
                             {this.nav.map(({title,link}) =>{
@@ -52,7 +53,7 @@ class Header extends Component{
                                           key={link}
                                           to={`/${link}/`}
                                              activeClassName={s.active}
-
+                                             onClick={()=>this.openMenu()}
                                     >
                                         {title}
                                     </NavLink>
