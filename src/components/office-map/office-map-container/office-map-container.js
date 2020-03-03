@@ -25,16 +25,12 @@ import FloorView from "../floor-view/floorView";
          history.push(`/office-map/${id}/`)
      };
       changeFloor = (floor,svgId) =>{
-          console.log(svgId);
           const {svgIdLoaded,changeActionFloor} = this.props;
           svgIdLoaded(svgId);
           changeActionFloor(floor);
-
       };
-
      render() {
          const {actionFloor,floorsData} = this.props;
-         console.log(floorsData);
          return(
              <div className="floor">
                  <div className="floor_navigation">
@@ -53,9 +49,7 @@ import FloorView from "../floor-view/floorView";
                  </div>
                  <div className="floor_map">
                      <FloorView goToRoom={this.goToRoom}/>
-
                  </div>
-
              </div>
          )
      }

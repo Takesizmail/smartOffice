@@ -65,6 +65,8 @@ class Params extends  Component{
                 <Loader/>
             );
         }
+
+
         return(
             <div className='params'>
 
@@ -116,9 +118,9 @@ class Params extends  Component{
         )}
 }
 
-const mapStateToProps = ({paramsOfSensors,paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,loadingParams}) =>{
+const mapStateToProps = ({paramsOfSensors,paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,loadingParams,showInformation}) =>{
     return {
-        paramsOfSensors,paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,loadingParams
+        paramsOfSensors,paramsHumidity,paramsTemperature,paramsCo2,paramsBrightness,loadingParams,showInformation
     }
 };
 

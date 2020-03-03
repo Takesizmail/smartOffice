@@ -732,36 +732,31 @@ class SmartOfficeApi {
         })
     };
     getApiRooms = (number) =>{
-        console.log('services getApiRoms :  get id  ' + number);
+        // console.log('services getApiRoms :  get id  ' + number);
         const element = number === '8' ? this.api_rooms_8 : this.api_room_1;
         return new Promise(resolve => {
             resolve (element)
         })
     };
     getApiRoomsSensors = (string) =>{
-        console.log('services getApiRoomsSensors :  get id  ' + string);
         const element = string === '8' ? this.api_rooms_8_sensors : this.api_rooms_1_sensors;
         return new Promise(resolve => {
             resolve (element)
         })
     };
     getApiFloorsRooms = (n) =>{
-        console.log('services getApiFloorsRooms :  получаю кімнати де встановленні датчики');
-        // немає для 99 бере floors_2_rooms  тому  помилка
         const floors = n ===1 ? this.api_floor_1_rooms: this.api_floors_2_rooms;
         return new Promise(resolve => {
             resolve(floors)
         })
     };
     getApiSchema = (svgId) =>{
-        console.log( ' services getApiSchema : get id svg ' + svgId);
         const svg = svgId === 1 ? this.api_schema_1 : svgId=== 2 ? this.api_schema_2 : this.fake_svg;
         return new Promise (resolve => {
             resolve(svg)
         })
     };
     getApiParams = (sensorId) =>{
-        console.log( 'services getApiParams : get idSensors = ' +  sensorId);
         const chart = sensorId === 0 ? this.api_chart_15655373_0_0 : this.api_chart_15655373_10_0;
         return new Promise( resolve => {
             resolve(chart)

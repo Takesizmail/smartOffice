@@ -26,7 +26,6 @@ class OverviewContainer extends Component{
     sortingData = () =>{
         const {services,paramsOfSensors,humidityLoaded, temperatureLoaded, co2Loaded, brightnessLoaded} = this.props;
         paramsOfSensors.forEach(({valueTypes,sensorId}) =>{
-            console.log(sensorId);
                 switch (valueTypes[0]) {
                     case 0 :
                         services.getApiParams(sensorId).then((el) => humidityLoaded(el.data) );
@@ -38,6 +37,7 @@ class OverviewContainer extends Component{
                 }
             });
     };
+
     render() {
         return(
             <OverviewRender FaceImg={normalFave}/>

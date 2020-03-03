@@ -14,12 +14,13 @@ import Information from "../overview/information";
 
 const App = ({showInformation}) =>{
 
-    if(showInformation){
-        return   <Information/>
-    }
-
+    // if (showInformation){
+    //     return <Information>
+    // }
+  const show = showInformation ? <Information/> : null;
     return(
         <React.Fragment>
+            { show}
             <div className="main_container">
                 <Header/>
                 <div className="container">
@@ -28,7 +29,7 @@ const App = ({showInformation}) =>{
                     <Route path='/office-map/' component={OfficeMapPage} exact/>
                     <Route path='/office-map/:id/' component={OfficeRoomPage} exact/>
                     <Route path='/profile/' component={ProfilePage} exact/>
-                    {/*<Redirect to='/' exact/>*/}
+                    <Redirect to='/' exact/>
                 </Switch>
                 </div>
             </div>

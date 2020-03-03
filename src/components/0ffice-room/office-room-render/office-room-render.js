@@ -5,7 +5,6 @@ import RoomSwitch from "../room-switch";
 import {connect} from 'react-redux'
 
 const OfficeRoomRender = ({contentType,paramsOfRoom}) =>{
-    const room = ['room 301'];
     return(
         <div className='room'>
             <div className="room_navigation">

@@ -1,0 +1,16 @@
+@import "src/style/index";
+//footer
+.footer{
+  width: 100%;
+  background-color: $footer-bg-color;
+  font-size: $font-size-text;
+  height: 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  position: relative;
+  z-index: 99;
+}
+
+//!footer

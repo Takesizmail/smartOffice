@@ -20,6 +20,11 @@ class Header extends Component{
         link:'profile'
     }];
 
+    closeMenu = () =>{
+        this.setState({
+            isOpenMenu: false
+        })
+    };
 
     openMenu = () =>{
         this.setState(({isOpenMenu})=>{
@@ -38,9 +43,15 @@ class Header extends Component{
                     <div className={s.headerWrap}>
                         <div className={s.header_logo}>
                             <div className={s.header_img}>
-                                <Link to='/'>  <img src={Logo} alt="logo-eleks"/></Link>
+                                <Link to='/'
+                                      onClick={this.closeMenu}
+                                >  <img src={Logo} alt="logo-eleks"/></Link>
                             </div>
-                            <div className={s.header_name}> smart office</div>
+                            <NavLink
+                                className={s.header_name}
+                                to='/'
+                                onClick={this.closeMenu}
+                            > smart office</NavLink>
                         </div>
                         <div className={s.header_menu_button}
                              onClick={()=>this.openMenu()}>

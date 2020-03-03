@@ -1,6 +1,5 @@
 import React from 'react'
 import './profile.scss'
-import Information from "../overview/information";
 
 const Profile = () =>{
 
