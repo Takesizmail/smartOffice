@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Takesizmail/smartOffice/static/css/main.e13aad86.chunk.css",
+    "main.js": "/Takesizmail/smartOffice/static/js/main.156a52f8.chunk.js",
+    "main.js.map": "/Takesizmail/smartOffice/static/js/main.156a52f8.chunk.js.map",
+    "runtime-main.js": "/Takesizmail/smartOffice/static/js/runtime-main.3f6e32fc.js",
+    "runtime-main.js.map": "/Takesizmail/smartOffice/static/js/runtime-main.3f6e32fc.js.map",
+    "static/js/2.51d69df1.chunk.js": "/Takesizmail/smartOffice/static/js/2.51d69df1.chunk.js",
+    "static/js/2.51d69df1.chunk.js.map": "/Takesizmail/smartOffice/static/js/2.51d69df1.chunk.js.map",
+    "index.html": "/Takesizmail/smartOffice/index.html",
+    "precache-manifest.706d3ac24517250df45d54dbcaa1648a.js": "/Takesizmail/smartOffice/precache-manifest.706d3ac24517250df45d54dbcaa1648a.js",
+    "service-worker.js": "/Takesizmail/smartOffice/service-worker.js",
+    "static/css/main.e13aad86.chunk.css.map": "/Takesizmail/smartOffice/static/css/main.e13aad86.chunk.css.map",
+    "static/js/2.51d69df1.chunk.js.LICENSE.txt": "/Takesizmail/smartOffice/static/js/2.51d69df1.chunk.js.LICENSE.txt",
+    "static/media/Normal Face.png": "/Takesizmail/smartOffice/static/media/Normal Face.da6efb77.png",
+    "static/media/indormation.scss": "/Takesizmail/smartOffice/static/media/ProximaNova-Semibold.df8c6264.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3f6e32fc.js",
+    "static/js/2.51d69df1.chunk.js",
+    "static/css/main.e13aad86.chunk.css",
+    "static/js/main.156a52f8.chunk.js"
+  ]
+}
