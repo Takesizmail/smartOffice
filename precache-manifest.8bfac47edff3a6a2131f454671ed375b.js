@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72ced5416c3b17e000c04e9c43a445ad",
+    "revision": "6637ed94724e652f2f791bebe13a552c",
     "url": "/smartOffice/index.html"
   },
   {
-    "revision": "db3f877c7719177a7475",
-    "url": "/smartOffice/static/css/main.6d9dea27.chunk.css"
+    "revision": "5394d0b81ce340d14684",
+    "url": "/smartOffice/static/css/main.b518b232.chunk.css"
   },
   {
-    "revision": "fe26a98fceeda88bf176",
-    "url": "/smartOffice/static/js/2.51d69df1.chunk.js"
+    "revision": "71f3607b61c48a549c2f",
+    "url": "/smartOffice/static/js/2.9e295269.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/smartOffice/static/js/2.51d69df1.chunk.js.LICENSE.txt"
+    "url": "/smartOffice/static/js/2.9e295269.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "db3f877c7719177a7475",
-    "url": "/smartOffice/static/js/main.156a52f8.chunk.js"
+    "revision": "5394d0b81ce340d14684",
+    "url": "/smartOffice/static/js/main.0d270166.chunk.js"
   },
   {
     "revision": "9695d40081622264d776",
     "url": "/smartOffice/static/js/runtime-main.30bd2bea.js"
+  },
+  {
+    "revision": "f26ca5e47f1259b85d69b03714d22889",
+    "url": "/smartOffice/static/media/Exhaustion Face.f26ca5e4.png"
   },
   {
     "revision": "da6efb77770f984771587eeab7237ef4",
@@ -78,5 +82,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "df8c626474a73ab7a8b511655597c7c4",
     "url": "/smartOffice/static/media/ProximaNova-Semibold.df8c6264.ttf"
+  },
+  {
+    "revision": "9dd1a138918835bb0b14d23455864778",
+    "url": "/smartOffice/static/media/Tired Face.9dd1a138.png"
   }
 ]);
