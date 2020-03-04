@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/smartOffice/static/css/main.b518b232.chunk.css",
-    "main.js": "/smartOffice/static/js/main.0d270166.chunk.js",
-    "main.js.map": "/smartOffice/static/js/main.0d270166.chunk.js.map",
+    "main.css": "/smartOffice/static/css/main.d876e2d7.chunk.css",
+    "main.js": "/smartOffice/static/js/main.5ff27bbc.chunk.js",
+    "main.js.map": "/smartOffice/static/js/main.5ff27bbc.chunk.js.map",
     "runtime-main.js": "/smartOffice/static/js/runtime-main.30bd2bea.js",
     "runtime-main.js.map": "/smartOffice/static/js/runtime-main.30bd2bea.js.map",
     "static/js/2.9e295269.chunk.js": "/smartOffice/static/js/2.9e295269.chunk.js",
     "static/js/2.9e295269.chunk.js.map": "/smartOffice/static/js/2.9e295269.chunk.js.map",
     "index.html": "/smartOffice/index.html",
-    "precache-manifest.8bfac47edff3a6a2131f454671ed375b.js": "/smartOffice/precache-manifest.8bfac47edff3a6a2131f454671ed375b.js",
+    "precache-manifest.c3ab072f4d13c3a5917d206429f64558.js": "/smartOffice/precache-manifest.c3ab072f4d13c3a5917d206429f64558.js",
     "service-worker.js": "/smartOffice/service-worker.js",
-    "static/css/main.b518b232.chunk.css.map": "/smartOffice/static/css/main.b518b232.chunk.css.map",
+    "static/css/main.d876e2d7.chunk.css.map": "/smartOffice/static/css/main.d876e2d7.chunk.css.map",
     "static/js/2.9e295269.chunk.js.LICENSE.txt": "/smartOffice/static/js/2.9e295269.chunk.js.LICENSE.txt",
     "static/media/Exhaustion Face.png": "/smartOffice/static/media/Exhaustion Face.f26ca5e4.png",
     "static/media/Normal Face.png": "/smartOffice/static/media/Normal Face.da6efb77.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.30bd2bea.js",
     "static/js/2.9e295269.chunk.js",
-    "static/css/main.b518b232.chunk.css",
-    "static/js/main.0d270166.chunk.js"
+    "static/css/main.d876e2d7.chunk.css",
+    "static/js/main.5ff27bbc.chunk.js"
   ]
 }
